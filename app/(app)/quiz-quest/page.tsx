@@ -1,9 +1,7 @@
-import { BottomNav } from '@/components/shared/BottomNav'
-
 export default function QuizQuestPage() {
   return (
     <div
-      className="min-h-screen p-6 pb-28"
+      className="min-h-screen p-6 pb-8"
       style={{
         background: 'linear-gradient(135deg, var(--summer-accent)20 0%, var(--spring-accent)20 100%)',
       }}
@@ -44,7 +42,6 @@ export default function QuizQuestPage() {
           </p>
         </div>
       </div>
-      <BottomNav />
     </div>
   )
 }

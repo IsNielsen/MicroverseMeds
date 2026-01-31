@@ -7,7 +7,6 @@ import { getDosesToNextStage } from '@/lib/gamification/tree'
 import type { GrowthStage } from '@/types/gamification'
 import Link from 'next/link'
 import { Plus } from 'lucide-react'
-import { BottomNav } from '@/components/shared/BottomNav'
 
 
 export default async function HomePage() {
@@ -66,7 +65,7 @@ export default async function HomePage() {
       </section>
 
       {/* Today's Medications */}
-      <section className="px-6 pt-8 pb-24">
+      <section className="px-6 pt-8 pb-8">
         <div className="flex items-center justify-between mb-6">
           <h2
             className="text-2xl font-bold"
@@ -126,8 +125,6 @@ export default async function HomePage() {
           </div>
         )}
       </section>
-      <BottomNav />
-
     </div>
   )
 }

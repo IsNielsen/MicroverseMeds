@@ -2,7 +2,6 @@ import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import { Plus, LogOut } from 'lucide-react'
 import { redirect } from 'next/navigation'
-import { BottomNav } from '@/components/shared/BottomNav'
 
 export default async function SettingsPage() {
   const supabase = await createClient()
@@ -140,8 +139,6 @@ export default async function SettingsPage() {
           </div>
         </section>
       </div>
-      <BottomNav />
-
     </div>
   )
 }

@@ -1,9 +1,7 @@
-import { BottomNav } from '@/components/shared/BottomNav'
-
 export default function MicroversePage() {
   return (
     <div
-      className="min-h-screen p-6 pb-28"
+      className="min-h-screen p-6 pb-8"
       style={{
         background: 'linear-gradient(135deg, var(--amber-50) 0%, var(--forest-50) 100%)',
       }}
@@ -45,7 +43,6 @@ export default function MicroversePage() {
           </p>
         </div>
       </div>
-      <BottomNav />
     </div>
   )
 }

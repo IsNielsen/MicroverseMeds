@@ -1,9 +1,7 @@
-import { BottomNav } from '@/components/shared/BottomNav'
-
 export default function MedFriendPage() {
   return (
     <div
-      className="min-h-screen p-6 pb-28"
+      className="min-h-screen p-6 pb-8"
       style={{
         background: 'linear-gradient(135deg, var(--spring-accent)20 0%, var(--forest-50) 100%)',
       }}
@@ -44,7 +42,6 @@ export default function MedFriendPage() {
           </p>
         </div>
       </div>
-      <BottomNav />
     </div>
   )
 }

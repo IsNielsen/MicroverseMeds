@@ -206,7 +206,7 @@ components/
 ├── shared/
 │   ├── HPDisplay.tsx           # Health points counter
 │   ├── StreakBadge.tsx         # Streak indicator
-│   └── BottomNav.tsx           # Mobile navigation
+│   └── SideNav.tsx             # Side navigation with hamburger menu
 └── ui/                         # Reusable UI components
 ```
 
