@@ -1,0 +1,17 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Young Tree (Stage 2: 30-99 doses) -->
+  <g id="young-tree">
+    <!-- Trunk -->
+    <rect x="180" y="200" width="40" height="120" rx="6" fill="#735f4f"/>
+    <!-- Branches -->
+    <path d="M190 220 L150 200" stroke="#735f4f" stroke-width="8" stroke-linecap="round"/>
+    <path d="M210 220 L250 200" stroke="#735f4f" stroke-width="8" stroke-linecap="round"/>
+    <!-- Foliage -->
+    <ellipse cx="200" cy="180" rx="60" ry="70" fill="#5fa67d"/>
+    <ellipse cx="150" cy="200" rx="40" ry="45" fill="#8ec4a4"/>
+    <ellipse cx="250" cy="200" rx="40" ry="45" fill="#8ec4a4"/>
+    <ellipse cx="200" cy="150" rx="45" ry="50" fill="#4d9961"/>
+    <!-- Ground -->
+    <ellipse cx="200" cy="320" rx="60" ry="10" fill="#d2c5b3" opacity="0.5"/>
+  </g>
+</svg>

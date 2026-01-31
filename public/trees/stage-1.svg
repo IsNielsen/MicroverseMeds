@@ -1,0 +1,13 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sapling (Stage 1: 0-29 doses) -->
+  <g id="sapling">
+    <!-- Trunk -->
+    <rect x="190" y="240" width="20" height="80" rx="4" fill="#735f4f"/>
+    <!-- Small leaves -->
+    <ellipse cx="200" cy="220" rx="30" ry="40" fill="#8ec4a4"/>
+    <ellipse cx="185" cy="235" rx="25" ry="30" fill="#5fa67d"/>
+    <ellipse cx="215" cy="235" rx="25" ry="30" fill="#5fa67d"/>
+    <!-- Ground -->
+    <ellipse cx="200" cy="320" rx="40" ry="8" fill="#d2c5b3" opacity="0.5"/>
+  </g>
+</svg>

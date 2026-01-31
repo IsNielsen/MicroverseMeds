@@ -1,0 +1,27 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ancient Tree (Stage 4: 300+ doses) -->
+  <g id="ancient-tree">
+    <!-- Thick trunk -->
+    <rect x="160" y="160" width="80" height="160" rx="10" fill="#735f4f"/>
+    <!-- Complex branches -->
+    <path d="M170 180 L100 140" stroke="#735f4f" stroke-width="14" stroke-linecap="round"/>
+    <path d="M230 180 L300 140" stroke="#735f4f" stroke-width="14" stroke-linecap="round"/>
+    <path d="M170 210 L110 180" stroke="#735f4f" stroke-width="12" stroke-linecap="round"/>
+    <path d="M230 210 L290 180" stroke="#735f4f" stroke-width="12" stroke-linecap="round"/>
+    <path d="M175 240 L125 220" stroke="#735f4f" stroke-width="10" stroke-linecap="round"/>
+    <path d="M225 240 L275 220" stroke="#735f4f" stroke-width="10" stroke-linecap="round"/>
+    <!-- Massive canopy -->
+    <ellipse cx="200" cy="130" rx="110" ry="120" fill="#5fa67d"/>
+    <ellipse cx="100" cy="150" rx="70" ry="75" fill="#8ec4a4"/>
+    <ellipse cx="300" cy="150" rx="70" ry="75" fill="#8ec4a4"/>
+    <ellipse cx="110" cy="190" rx="60" ry="65" fill="#5fa67d"/>
+    <ellipse cx="290" cy="190" rx="60" ry="65" fill="#5fa67d"/>
+    <ellipse cx="125" cy="230" rx="55" ry="60" fill="#8ec4a4"/>
+    <ellipse cx="275" cy="230" rx="55" ry="60" fill="#8ec4a4"/>
+    <ellipse cx="200" cy="90" rx="75" ry="80" fill="#4d9961"/>
+    <ellipse cx="160" cy="110" rx="50" ry="55" fill="#3a7a4d"/>
+    <ellipse cx="240" cy="110" rx="50" ry="55" fill="#3a7a4d"/>
+    <!-- Ground -->
+    <ellipse cx="200" cy="320" rx="100" ry="15" fill="#d2c5b3" opacity="0.5"/>
+  </g>
+</svg>

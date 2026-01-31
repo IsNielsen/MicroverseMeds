@@ -1,0 +1,205 @@
+import type { Config } from "tailwindcss";
+
+export default {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        // Primary - Forest Greens
+        forest: {
+          50: "var(--forest-50)",
+          100: "var(--forest-100)",
+          200: "var(--forest-200)",
+          300: "var(--forest-300)",
+          400: "var(--forest-400)",
+          500: "var(--forest-500)",
+          600: "var(--forest-600)",
+          700: "var(--forest-700)",
+          800: "var(--forest-800)",
+          900: "var(--forest-900)",
+        },
+        // Secondary - Earth Tones
+        earth: {
+          50: "var(--earth-50)",
+          100: "var(--earth-100)",
+          200: "var(--earth-200)",
+          300: "var(--earth-300)",
+          400: "var(--earth-400)",
+          500: "var(--earth-500)",
+          600: "var(--earth-600)",
+          700: "var(--earth-700)",
+          800: "var(--earth-800)",
+          900: "var(--earth-900)",
+        },
+        // Accent - Amber/Gold
+        amber: {
+          50: "var(--amber-50)",
+          100: "var(--amber-100)",
+          200: "var(--amber-200)",
+          300: "var(--amber-300)",
+          400: "var(--amber-400)",
+          500: "var(--amber-500)",
+          600: "var(--amber-600)",
+          700: "var(--amber-700)",
+          800: "var(--amber-800)",
+          900: "var(--amber-900)",
+        },
+        // Warm Grays
+        "warm-gray": {
+          50: "var(--warm-gray-50)",
+          100: "var(--warm-gray-100)",
+          200: "var(--warm-gray-200)",
+          300: "var(--warm-gray-300)",
+          400: "var(--warm-gray-400)",
+          500: "var(--warm-gray-500)",
+          600: "var(--warm-gray-600)",
+          700: "var(--warm-gray-700)",
+          800: "var(--warm-gray-800)",
+          900: "var(--warm-gray-900)",
+        },
+        // Semantic Colors
+        success: "var(--color-success)",
+        warning: "var(--color-warning)",
+        error: "var(--color-error)",
+        info: "var(--color-info)",
+        // Seasonal Accents
+        spring: {
+          accent: "var(--spring-accent)",
+        },
+        summer: {
+          accent: "var(--summer-accent)",
+        },
+        fall: {
+          accent: "var(--fall-accent)",
+        },
+        winter: {
+          accent: "var(--winter-accent)",
+        },
+      },
+      fontFamily: {
+        display: "var(--font-display)",
+        body: "var(--font-body)",
+        accent: "var(--font-accent)",
+        quicksand: ['Quicksand', 'sans-serif'],
+        comfortaa: ['Comfortaa', 'cursive'],
+      },
+      fontSize: {
+        xs: "var(--text-xs)",
+        sm: "var(--text-sm)",
+        base: "var(--text-base)",
+        lg: "var(--text-lg)",
+        xl: "var(--text-xl)",
+        "2xl": "var(--text-2xl)",
+        "3xl": "var(--text-3xl)",
+        "4xl": "var(--text-4xl)",
+        "5xl": "var(--text-5xl)",
+      },
+      lineHeight: {
+        tight: "var(--leading-tight)",
+        snug: "var(--leading-snug)",
+        normal: "var(--leading-normal)",
+        relaxed: "var(--leading-relaxed)",
+        loose: "var(--leading-loose)",
+      },
+      fontWeight: {
+        light: "var(--font-light)",
+        normal: "var(--font-normal)",
+        medium: "var(--font-medium)",
+        semibold: "var(--font-semibold)",
+        bold: "var(--font-bold)",
+      },
+      spacing: {
+        1: "var(--space-1)",
+        2: "var(--space-2)",
+        3: "var(--space-3)",
+        4: "var(--space-4)",
+        5: "var(--space-5)",
+        6: "var(--space-6)",
+        8: "var(--space-8)",
+        10: "var(--space-10)",
+        12: "var(--space-12)",
+        16: "var(--space-16)",
+        20: "var(--space-20)",
+      },
+      borderRadius: {
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+        "2xl": "var(--radius-2xl)",
+        "3xl": "var(--radius-3xl)",
+        full: "var(--radius-full)",
+      },
+      boxShadow: {
+        xs: "var(--shadow-xs)",
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+        xl: "var(--shadow-xl)",
+        "2xl": "var(--shadow-2xl)",
+        inner: "var(--shadow-inner)",
+        success: "var(--shadow-success)",
+        "glow-green": "var(--shadow-glow-green)",
+        "glow-gold": "var(--shadow-glow-gold)",
+      },
+      transitionTimingFunction: {
+        smooth: "var(--ease-smooth)",
+        bounce: "var(--ease-bounce)",
+        gentle: "var(--ease-gentle)",
+      },
+      animation: {
+        "float-tree": "float-tree 5s ease-in-out infinite",
+        "hp-gain": "hp-gain 0.6s var(--ease-bounce)",
+        "sparkle-float": "sparkle-float 2s ease-in-out infinite",
+        "shimmer": "shimmer-slide 3s linear infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "pulse-glow-gold": "pulse-glow-gold 3s ease-in-out infinite",
+        "spring-bounce": "spring-bounce 0.5s var(--ease-bounce)",
+      },
+      keyframes: {
+        "float-tree": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "33%": { transform: "translateY(-12px) rotate(1deg)" },
+          "66%": { transform: "translateY(-6px) rotate(-0.5deg)" },
+        },
+        "hp-gain": {
+          "0%": { transform: "scale(1) rotate(0deg)" },
+          "25%": { transform: "scale(1.15) rotate(5deg)" },
+          "50%": { transform: "scale(1.1) rotate(-3deg)" },
+          "75%": { transform: "scale(1.05) rotate(2deg)" },
+          "100%": { transform: "scale(1) rotate(0deg)" },
+        },
+        "sparkle-float": {
+          "0%": { opacity: "0", transform: "translateY(0) scale(0) rotate(0deg)" },
+          "50%": { opacity: "1", transform: "translateY(-20px) scale(1) rotate(180deg)" },
+          "100%": { opacity: "0", transform: "translateY(-40px) scale(0.5) rotate(360deg)" },
+        },
+        "shimmer-slide": {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "var(--shadow-glow-green)", opacity: "1" },
+          "50%": { boxShadow: "0 0 30px rgba(77, 153, 97, 0.6), 0 0 60px rgba(77, 153, 97, 0.3)", opacity: "0.9" },
+        },
+        "pulse-glow-gold": {
+          "0%, 100%": { boxShadow: "var(--shadow-glow-gold)", opacity: "1" },
+          "50%": { boxShadow: "0 0 30px rgba(245, 158, 11, 0.6), 0 0 60px rgba(245, 158, 11, 0.3)", opacity: "0.9" },
+        },
+        "spring-bounce": {
+          "0%, 100%": { transform: "translateY(0) scale(1)" },
+          "50%": { transform: "translateY(-8px) scale(1.05)" },
+        },
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config;
