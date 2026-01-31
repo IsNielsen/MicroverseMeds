@@ -1,26 +1,12 @@
-import { GROWTH_STAGES } from '@/types/gamification'
-import type { GrowthStage, GrowthStageInfo } from '@/types/gamification'
-
-export function getGrowthStage(totalDoses: number): GrowthStageInfo {
-  if (totalDoses >= 300) return GROWTH_STAGES[4]
-  if (totalDoses >= 100) return GROWTH_STAGES[3]
-  if (totalDoses >= 30) return GROWTH_STAGES[2]
-  return GROWTH_STAGES[1]
-}
+import type { GrowthStage } from '@/types/gamification'
 
 export function getGrowthStageNumber(totalDoses: number): GrowthStage {
-  return getGrowthStage(totalDoses).stage
+  const safeTotal = Number.isFinite(totalDoses) ? Math.max(0, totalDoses) : 0
+  return Math.max(1, Math.floor(safeTotal))
 }
 
 export function getDosesToNextStage(totalDoses: number): number {
-  const currentStage = getGrowthStage(totalDoses)
-
-  if (currentStage.stage === 4) {
-    return 0 // Max stage reached
-  }
-
-  const nextStage = GROWTH_STAGES[(currentStage.stage + 1) as GrowthStage]
-  return nextStage.minDoses - totalDoses
+  return 1
 }
 
 export function shouldTreeGrow(

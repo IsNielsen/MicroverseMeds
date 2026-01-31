@@ -37,7 +37,7 @@ export default async function HomePage() {
   const dosesToNext = getDosesToNextStage(profile?.total_doses_logged || 0)
 
   // Get current season (defaulting to spring for now - can be calculated from profile.tree_season)
-  const season: Season = (profile?.tree_season as Season) || 'spring'
+  // const season: Season = (profile?.tree_season as Season) || 'spring'
 
   return (
     <div style={{ backgroundColor: 'var(--bg-primary)' }}>
@@ -45,7 +45,8 @@ export default async function HomePage() {
       <header
         className="px-6 pt-6 pb-8"
         style={{
-          background: `linear-gradient(180deg, var(--${season}-accent)20 0%, transparent 100%)`,
+          // background: `linear-gradient(180deg, var(--${season}-accent)20 0%, transparent 100%)`,
+          background: `linear-gradient(180deg, green-500 20 0%, transparent 100%)`,
         }}
       >
         {/* Stats Row */}
@@ -53,7 +54,7 @@ export default async function HomePage() {
           <HPDisplay hp={profile?.health_points || 0} />
           <StreakBadge streak={profile?.current_streak || 0} />
         </div>
-      </header>
+      </header>az
 
       {/* Tree Visual */}
       <section className="px-6 pb-8">
@@ -61,7 +62,7 @@ export default async function HomePage() {
           growthStage={(profile?.tree_growth_stage as GrowthStage) || 1}
           totalDoses={profile?.total_doses_logged || 0}
           dosesToNext={dosesToNext}
-          season={season}
+          // season={season}
         />
       </section>
 

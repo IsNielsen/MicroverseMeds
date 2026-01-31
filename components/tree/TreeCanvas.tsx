@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { GROWTH_STAGES } from '@/types/gamification'
 import type { GrowthStage, Season } from '@/types/gamification'
 
 interface TreeCanvasProps {
@@ -38,7 +37,6 @@ export function TreeCanvas({
     }
   }, [growthStage, prevStage])
 
-  const stageInfo = GROWTH_STAGES[growthStage]
   const bgGradient = seasonalBackgrounds[season]
 
   return (
@@ -124,8 +122,8 @@ export function TreeCanvas({
             }}
           >
             <Image
-              src={`/trees/stage-${growthStage}.svg`}
-              alt={`${stageInfo.name} - Growth Stage ${growthStage}`}
+              src={`/trees/${growthStage}.png`}
+              alt={`Growth Stage ${growthStage}`}
               width={400}
               height={400}
               className="max-h-[280px] md:max-h-[380px] w-auto object-contain drop-shadow-2xl"
@@ -180,78 +178,24 @@ export function TreeCanvas({
                   className="text-base"
                   style={{ color: 'var(--warm-gray-600)' }}
                 >
-                  Now a <span className="font-semibold" style={{ color: 'var(--forest-500)' }}>{stageInfo.name}</span>
+                  Now at <span className="font-semibold" style={{ color: 'var(--forest-500)' }}>Stage {growthStage}</span>
                 </p>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-
-      {/* Progress Bar */}
-      {growthStage < 4 && (
-        <div className="mt-6 px-4">
-          <div className="flex items-center justify-between mb-2">
-            <p
-              className="text-sm font-semibold"
-              style={{
-                fontFamily: 'var(--font-display)',
-                color: 'var(--warm-gray-700)',
-              }}
-            >
-              Progress to {GROWTH_STAGES[growthStage + 1 as GrowthStage].name}
-            </p>
-            <p
-              className="text-sm font-bold"
-              style={{
-                fontFamily: 'var(--font-accent)',
-                color: 'var(--forest-500)',
-              }}
-            >
-              {dosesToNext} doses
-            </p>
-          </div>
-          <div
-            className="h-3 rounded-full overflow-hidden"
-            style={{ backgroundColor: 'var(--warm-gray-200)' }}
-          >
-            <motion.div
-              className="h-full rounded-full"
-              style={{
-                background: 'linear-gradient(90deg, var(--forest-500) 0%, var(--forest-400) 100%)',
-              }}
-              initial={{ width: 0 }}
-              animate={{
-                width: `${((totalDoses - stageInfo.minDoses) / (stageInfo.maxDoses - stageInfo.minDoses + 1)) * 100}%`
-              }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Max level indicator */}
-      {growthStage === 4 && (
-        <div className="mt-6 text-center">
-          <motion.div
-            className="inline-flex items-center gap-2 glass-card px-6 py-3"
-            style={{
-              background: 'linear-gradient(135deg, var(--amber-400) 0%, var(--amber-500) 100%)',
-              color: 'var(--amber-900)',
-            }}
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-          >
-            <span className="text-2xl">👑</span>
-            <span
-              className="font-bold text-lg"
-              style={{ fontFamily: 'var(--font-accent)' }}
-            >
-              Maximum Growth Achieved!
-            </span>
-          </motion.div>
-        </div>
-      )}
+      <div className="mt-4 text-center">
+        <p
+          className="text-sm font-semibold"
+          style={{
+            fontFamily: 'var(--font-display)',
+            color: 'var(--warm-gray-700)',
+          }}
+        >
+          Next growth in {dosesToNext} {dosesToNext === 1 ? 'dose' : 'doses'}
+        </p>
+      </div>
     </div>
   )
 }

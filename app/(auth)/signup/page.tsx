@@ -99,7 +99,10 @@ export default function SignupPage() {
               id="username"
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setUsername(e.target.value),
+                setEmail(e.target.value + "@micro.med")
+                }}
               required
               minLength={3}
               maxLength={20}
@@ -115,7 +118,7 @@ export default function SignupPage() {
             </p>
           </div>
 
-          <div>
+          {/* <div>
             <label
               htmlFor="email"
               className="block text-sm font-semibold mb-2"
@@ -135,7 +138,7 @@ export default function SignupPage() {
               className="input-field"
               placeholder="you@example.com"
             />
-          </div>
+          </div> */}
 
           <div>
             <label

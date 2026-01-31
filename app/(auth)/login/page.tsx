@@ -8,7 +8,7 @@ import { toast } from 'sonner'
 
 export default function LoginPage() {
   const router = useRouter()
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -19,7 +19,7 @@ export default function LoginPage() {
     try {
       const supabase = createClient()
       const { error } = await supabase.auth.signInWithPassword({
-        email,
+        email: username + '@micro.med',
         password,
       })
 
@@ -64,23 +64,23 @@ export default function LoginPage() {
         <form onSubmit={handleLogin} className="space-y-5">
           <div>
             <label
-              htmlFor="email"
+              htmlFor="username"
               className="block text-sm font-semibold mb-2"
               style={{
                 fontFamily: 'var(--font-display)',
                 color: 'var(--warm-gray-700)',
               }}
             >
-              Email
+              Username
             </label>
             <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              id="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               required
               className="input-field"
-              placeholder="you@example.com"
+              placeholder="your-username"
             />
           </div>
 

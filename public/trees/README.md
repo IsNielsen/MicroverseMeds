@@ -1,6 +1,6 @@
 # Tree Assets
 
-This directory contains tree graphics for the 4 growth stages in Microverse Meds.
+This directory contains tree graphics for per-dose growth stages in Microverse Meds.
 
 ## Current Files
 
@@ -8,17 +8,17 @@ Currently using **SVG placeholders** for development. Replace these with your ac
 
 ## File Structure
 
-- `stage-1.svg` - **Sapling** (0-29 doses logged)
-- `stage-2.svg` - **Young Tree** (30-99 doses logged)
-- `stage-3.svg` - **Mature Tree** (100-299 doses logged)
-- `stage-4.svg` - **Ancient Tree** (300+ doses logged)
+- `1.svg` - First growth stage
+- `2.svg` - Second growth stage
+- `3.svg` - Third growth stage
+- ...and so on, one file per dose
 
 ## Replacing Placeholders
 
 To use your custom tree images:
 
-1. Prepare 4 tree images (one for each growth stage)
-2. Name them: `stage-1.png`, `stage-2.png`, `stage-3.png`, `stage-4.png`
+1. Prepare one tree image per dose
+2. Name them: `1.png`, `2.png`, `3.png`, ...
 3. Recommended dimensions: **400x400px** to **600x600px**
 4. Format: **PNG with transparency** for best results
 5. Replace the placeholder SVG files with your PNG files
