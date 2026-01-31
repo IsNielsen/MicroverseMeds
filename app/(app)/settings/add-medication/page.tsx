@@ -2,12 +2,11 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import { addMedication } from '../actions'
 
-const EMOJI_OPTIONS = ['💊', '💉', '🧪', '⚕️', '🩺', '💙', '💚', '🧡', '💛', '💜']
 const COLOR_OPTIONS = [
   '#3B82F6', // Blue
   '#10B981', // Green
@@ -23,10 +22,8 @@ export default function AddMedicationPage() {
   const [loading, setLoading] = useState(false)
 
   const [medicationName, setMedicationName] = useState('')
-  const [dosage, setDosage] = useState('')
   const [nickname, setNickname] = useState('')
   const [frequency, setFrequency] = useState('daily')
-  const [icon, setIcon] = useState('💊')
   const [color, setColor] = useState('#3B82F6')
 
   async function handleSubmit(e: React.FormEvent) {
@@ -34,27 +31,16 @@ export default function AddMedicationPage() {
     setLoading(true)
 
     try {
-      const supabase = createClient()
-      const {
-        data: { user },
-      } = await supabase.auth.getUser()
-
-      if (!user) throw new Error('Not authenticated')
-
-      // NOTE: In production, you would encrypt medication_name and dosage here
-      // using the encryption utilities before storing
-      const { error } = await supabase.from('medications').insert({
-        user_id: user.id,
-        medication_name: medicationName, // TODO: Encrypt
-        dosage: dosage, // TODO: Encrypt
+      const result = await addMedication({
+        medicationName,
         nickname,
         frequency,
-        icon,
         color,
-        is_active: true,
       })
 
-      if (error) throw error
+      if (result.error) {
+        throw new Error(result.error)
+      }
 
       toast.success(`${nickname} added successfully! 🎉`)
       router.push('/settings')
@@ -102,19 +88,6 @@ export default function AddMedicationPage() {
               className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
             />
           </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Dosage
-            </label>
-            <input
-              type="text"
-              value={dosage}
-              onChange={(e) => setDosage(e.target.value)}
-              placeholder="e.g., 500mg"
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
-            />
-          </div>
         </div>
 
         {/* Display Info (Not Encrypted) */}
@@ -141,28 +114,6 @@ export default function AddMedicationPage() {
             <p className="text-xs text-gray-500 mt-1">
               Use a friendly name you'll remember
             </p>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Icon
-            </label>
-            <div className="flex gap-2 flex-wrap">
-              {EMOJI_OPTIONS.map((emoji) => (
-                <button
-                  key={emoji}
-                  type="button"
-                  onClick={() => setIcon(emoji)}
-                  className={`text-3xl p-3 rounded-xl border-2 transition ${
-                    icon === emoji
-                      ? 'border-green-500 bg-green-50'
-                      : 'border-gray-200 hover:border-gray-300'
-                  }`}
-                >
-                  {emoji}
-                </button>
-              ))}
-            </div>
           </div>
 
           <div>
@@ -209,18 +160,15 @@ export default function AddMedicationPage() {
         <div className="bg-white rounded-2xl p-6 shadow-md">
           <h3 className="text-sm font-semibold text-gray-700 mb-3">Preview</h3>
           <div
-            className="p-4 border border-gray-200 rounded-xl flex items-center gap-3"
+            className="p-4 border border-gray-200 rounded-xl"
             style={{ borderLeft: `4px solid ${color}` }}
           >
-            <div className="text-3xl">{icon}</div>
-            <div>
-              <p className="font-semibold text-gray-800">
-                {nickname || 'Medication Nickname'}
-              </p>
-              <p className="text-sm text-gray-600 capitalize">
-                {frequency.replace('_', ' ')}
-              </p>
-            </div>
+            <p className="font-semibold text-gray-800">
+              {nickname || 'Medication Nickname'}
+            </p>
+            <p className="text-sm text-gray-600 capitalize">
+              {frequency.replace('_', ' ')}
+            </p>
           </div>
         </div>
 

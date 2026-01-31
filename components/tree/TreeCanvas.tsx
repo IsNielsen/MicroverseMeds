@@ -126,7 +126,7 @@ export function TreeCanvas({
               alt={`Growth Stage ${growthStage}`}
               width={400}
               height={400}
-              className="max-h-[280px] md:max-h-[380px] w-auto object-contain drop-shadow-2xl"
+              className=" w-auto object-contain drop-shadow-2xl"
               priority
               style={{
                 filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15))',

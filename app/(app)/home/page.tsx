@@ -54,10 +54,10 @@ export default async function HomePage() {
           <HPDisplay hp={profile?.health_points || 0} />
           <StreakBadge streak={profile?.current_streak || 0} />
         </div>
-      </header>az
+      </header>
 
       {/* Tree Visual */}
-      <section className="px-6 pb-8">
+      <section className="px-6 pb-8 w-full">
         <TreeCanvas
           growthStage={(profile?.tree_growth_stage as GrowthStage) || 1}
           totalDoses={profile?.total_doses_logged || 0}

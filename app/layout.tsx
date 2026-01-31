@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { GlobalAudioPlayer } from "@/components/shared/GlobalAudioPlayer";
 
 export const metadata: Metadata = {
   title: "Microverse Meds - Gamified Medication Tracker",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <GlobalAudioPlayer src="/Music/playful-kids-200436.mp3" volume={0.4} />
         {children}
         <Toaster
           position="top-center"
