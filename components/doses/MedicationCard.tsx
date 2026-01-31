@@ -37,8 +37,8 @@ export function MedicationCard({ medication }: MedicationCardProps) {
 
       // Reset after animation
       setTimeout(() => setLogged(false), 3000)
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to log dose')
+    } catch (error: unknown) {
+      toast.error(error instanceof Error ? error.message : 'Failed to log dose')
     } finally {
       setLoading(false)
     }

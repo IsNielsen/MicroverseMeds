@@ -4,7 +4,7 @@ import { MedicationCard } from '@/components/doses/MedicationCard'
 import { HPDisplay } from '@/components/shared/HPDisplay'
 import { StreakBadge } from '@/components/shared/StreakBadge'
 import { getDosesToNextStage } from '@/lib/gamification/tree'
-import type { GrowthStage, Season } from '@/types/gamification'
+import type { GrowthStage } from '@/types/gamification'
 import Link from 'next/link'
 import { Plus } from 'lucide-react'
 import { BottomNav } from '@/components/shared/BottomNav'
@@ -34,7 +34,7 @@ export default async function HomePage() {
     .order('created_at', { ascending: true })
 
   // Calculate progress
-  const dosesToNext = getDosesToNextStage(profile?.total_doses_logged || 0)
+  const dosesToNext = getDosesToNextStage()
 
   // Get current season (defaulting to spring for now - can be calculated from profile.tree_season)
   // const season: Season = (profile?.tree_season as Season) || 'spring'
@@ -60,7 +60,6 @@ export default async function HomePage() {
       <section className="px-6 pb-8 w-full">
         <TreeCanvas
           growthStage={(profile?.tree_growth_stage as GrowthStage) || 1}
-          totalDoses={profile?.total_doses_logged || 0}
           dosesToNext={dosesToNext}
           // season={season}
         />
@@ -76,7 +75,7 @@ export default async function HomePage() {
               color: 'var(--forest-700)',
             }}
           >
-            Today's Doses
+            Today&apos;s Doses
           </h2>
           <Link
             href="/settings?tab=medications"

@@ -7,7 +7,6 @@ import type { GrowthStage, Season } from '@/types/gamification'
 
 interface TreeCanvasProps {
   growthStage: GrowthStage
-  totalDoses: number
   dosesToNext: number
   season?: Season
 }
@@ -22,7 +21,6 @@ const seasonalBackgrounds = {
 
 export function TreeCanvas({
   growthStage,
-  totalDoses,
   dosesToNext,
   season = 'spring',
 }: TreeCanvasProps) {

@@ -1,4 +1,3 @@
-import { BottomNav } from '@/components/shared/BottomNav'
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 

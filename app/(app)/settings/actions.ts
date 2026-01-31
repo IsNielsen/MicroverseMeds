@@ -48,8 +48,8 @@ export async function addMedication(input: AddMedicationInput) {
     revalidatePath('/home')
 
     return { success: true, medication: data }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error adding medication:', error)
-    return { error: error.message || 'Failed to add medication' }
+    return { error: error instanceof Error ? error.message : 'Failed to add medication' }
   }
 }

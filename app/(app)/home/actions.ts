@@ -4,9 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
 import {
   getGrowthStageNumber,
-  shouldTreeGrow,
 } from '@/lib/gamification/tree'
-import type { GrowthStage } from '@/types/gamification'
 
 export async function logDose(medicationId: string) {
   const supabase = await createClient()
@@ -116,8 +114,8 @@ export async function logDose(medicationId: string) {
       newHP,
       treeGrew: newGrowthStage > (profile.tree_growth_stage ?? 1),
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error logging dose:', error)
-    return { error: error.message }
+    return { error: error instanceof Error ? error.message : 'Unknown error' }
   }
 }

@@ -49,9 +49,9 @@ export default function SignupPage() {
       toast.success('Account created! Welcome to Microverse Meds 🌱')
       router.push('/home')
       router.refresh()
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Signup error:', error)
-      toast.error(error.message || 'Failed to create account')
+      toast.error(error instanceof Error ? error.message : 'Failed to create account')
     } finally {
       setLoading(false)
     }
@@ -100,9 +100,9 @@ export default function SignupPage() {
               type="text"
               value={username}
               onChange={(e) => {
-                setUsername(e.target.value),
+                setUsername(e.target.value)
                 setEmail(e.target.value + "@micro.med")
-                }}
+              }}
               required
               minLength={3}
               maxLength={20}

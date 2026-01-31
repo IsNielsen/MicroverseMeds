@@ -45,8 +45,8 @@ export default function AddMedicationPage() {
       toast.success(`${nickname} added successfully! 🎉`)
       router.push('/settings')
       router.refresh()
-    } catch (error: any) {
-      toast.error(error.message || 'Failed to add medication')
+    } catch (error: unknown) {
+      toast.error(error instanceof Error ? error.message : 'Failed to add medication')
     } finally {
       setLoading(false)
     }
@@ -101,7 +101,7 @@ export default function AddMedicationPage() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Nickname * (What you'll see in the app)
+              Nickname * (What you&apos;ll see in the app)
             </label>
             <input
               type="text"
@@ -112,7 +112,7 @@ export default function AddMedicationPage() {
               className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 outline-none"
             />
             <p className="text-xs text-gray-500 mt-1">
-              Use a friendly name you'll remember
+              Use a friendly name you&apos;ll remember
             </p>
           </div>
 

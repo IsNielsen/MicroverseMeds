@@ -13,7 +13,7 @@ export function getGrowthStageNumber(totalDoses: number): GrowthStage {
   return ((Math.floor(safeTotal) - 6) % 14) + 6
 }
 
-export function getDosesToNextStage(totalDoses: number): number {
+export function getDosesToNextStage(): number {
   return 1
 }
 
